@@ -523,11 +523,8 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 ::: {.column width="50%"}
 <br/> <br/>
 
-<p style="font-size: 100px; color: #007bff">
+[Thank you!]{style="font-size: 100px; text-align=left; color: black"}
 
-Thank you!
-
-</p>
 
 <br/> <br/>
 
