@@ -43,19 +43,19 @@ editor: visual
 
 <br/>
 
-::: {.fragment .fade-out style="font-size: 25px"}
-<!-- ![](img/cdisc_lib_part1.mp4){fig-align="center" width="1200"} -->
+::: {.fragment style="font-size: 25px"}
+![](img/cdisc_lib_part1.mp4){fig-align="center" width="1200"}
 
-![](img/cdisc_lib_img1.png){fig-align="center" width="1200"}
+<!-- ![](img/cdisc_lib_img1.png){fig-align="center" width="1200"} -->
 :::
 
-::: {.fragment .fade-out style="font-size: 25px"}
-![](img/cdisc_lib_img2.png){fig-align="center" width="1200"}
-:::
+<!-- ::: {.fragment .fade-out style="font-size: 25px"} -->
+<!-- ![](img/cdisc_lib_img2.png){fig-align="center" width="1200"} -->
+<!-- ::: -->
 
-::: {.fragment .fade-out style="font-size: 25px"}
-![](img/cdisc_lib_img3.png){fig-align="center" width="1200"}
-:::
+<!-- ::: {.fragment .fade-out style="font-size: 25px"} -->
+<!-- ![](img/cdisc_lib_img3.png){fig-align="center" width="1200"} -->
+<!-- ::: -->
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
