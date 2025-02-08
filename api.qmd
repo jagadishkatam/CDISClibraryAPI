@@ -531,7 +531,7 @@ Thank you!
 
 <br/> <br/>
 
-`r fontawesome::fa(c("slideshare"), "black")` [jagadishkatam.github.io](https://jagadishkatam.github.io/SankeySlides/sankey.html#/title-slide){style="font-size: 40px; text-align=left; color: black"}
+`r fontawesome::fa(c("slideshare"), "black")` [jagadishkatam.github.io](https://jagadishkatam.github.io/CDISClibraryAPI/api.html){style="font-size: 40px; text-align=left; color: orange"}
 :::
 
 ::: {.column width="50%"}
