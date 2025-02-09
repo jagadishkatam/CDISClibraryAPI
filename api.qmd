@@ -1,6 +1,6 @@
 ---
 title: "Implementing the CDISC Library RESTful API in R: Automated Access to Metadata Repositories and Controlled Terminologies"
-subtitle: "<br><span style='color:#3F5596; font-weight: bold;'>Pharma</span><span style='color:#8BCE88;font-weight: bold;'>SUG</span> <br>SDE<br>"
+subtitle: "<br><span style='color:#3F5596; font-weight: bold;font-size:50px'>Pharma</span><span style='color:#8BCE88;font-weight: bold;font-size:50px'>SUG</span> <br>SDE<br>"
 author: "<strong>Jagadish Katam</strong><br>12-Apr-2025"
 footer: "<strong>[© 2024 Princeps Technologies All Rights Reserved.](https://www.princepstech.com/)</strong>"
 format: 
@@ -161,16 +161,10 @@ Some of the common HTTP result codes that are often used inside REST APIs are as
 #| code-line-numbers: false
 #| eval: true
 
-library(tidyCDISC)
-library(dplyr)
-library(networkD3)
-library(plotly)
-library(ggalluvial)
+library(tidyverse)
 library(DT)
 library(httr2)
 library(jsonlite)
-library(dplyr)
-library(purrr)
 ```
 
 ```{r}
