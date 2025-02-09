@@ -131,7 +131,7 @@ Source: https://www.slideshare.net/slideshow/what-is-rest-api-rest-api-concepts-
 ::: {.fragment layout="[[80], [20]]"}
 Some of the common HTTP result codes that are often used inside REST APIs are as follows: <br/> <br> [200 - "OK"]{style="font-weight:bold; color:green;"} <br> 201 - "Created" (Used with POST). <br> 400 - "Bad Request" (Perhaps missing required parameters). <br> 401 - "Unauthorized" (Missing authentication parameters). <br> 403 - "Forbidden" (You were authenticated but lacking required privileges). <br> [404 - "Not Found"]{style="font-weight:bold;color:red;"}.
 
-![](img/restful.png){.fragment fig-align="center" width="500"}
+![](img/rest.png){.fragment fig-align="center" width="700"}
 :::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -350,7 +350,6 @@ DT::datatable(df |> rename_all(toupper), filter = 'top', options = list(
 
 ```{r }
 #| echo: true
-#| code-line-numbers: '|'
 #| eval: false
 #| code-copy: true
 
@@ -444,7 +443,7 @@ ct_list <- resp %>% resp_body_json()
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-## Controlled Terminology Response returns JSON {.title-slide .smaller}
+## Extract Controlled Terminology from JSON file {.title-slide .smaller}
 
 <br/>
 
@@ -496,7 +495,7 @@ ct_codelist_df <- map_dfr(1:codelist_count, function(i) {
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-## Controlled Terminology Response returns JSON {.title-slide .smaller}
+## Controlled Terminology Data {.title-slide .smaller}
 
 <br/>
 
@@ -514,14 +513,6 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-## References {.title-slide .smaller}
-
-<br/>
-
--   SlideShare User. Introduction to APIs (Application Programming Interface). SlideShare. Accessed \[Date\]. https://www.slideshare.net/slideshow/introduction-to-apis-application-programming-interface/229843498.
-
-<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
 ## Conclusion {.title-slide .smaller}
 
 <br/>
@@ -534,6 +525,21 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 -   Access controlled terminology, dataset structures, and variable definitions.
 
 <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+
+## References {.title-slide .smaller}
+
+<br/>
+
+-   Aerts, J. (2019). *Implementing the CDISC Library API in software applications: First experiences.* Presented at **PHUSE EU Connect 2019**, Tarrenz, Austria. <br><br>
+
+-   Hinson, J. (2021). *How the R programming language handles the CDISC Library API.* Presented at **PHUSE US Connect 2021**. <br><br>
+
+-   Radelicki, R. (2020). *CDISC Library try-out: From implementation to evaluation of the API.* Presented at **PHUSE US Connect 2020**, Mechelen, Belgium. <br><br>
+
+-   Jansen, L. (2021). *Extracting data standards metadata and controlled terminology from the CDISC Library using SAS© with PROC LUA* (Paper AD-168). Presented at **PharmaSUG 2021**.
+
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
 
 ## 
 
