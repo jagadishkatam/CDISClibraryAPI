@@ -1,10 +1,11 @@
 ---
 title: "Implementing the CDISC Library RESTful API in R: Automated Access to Metadata Repositories and Controlled Terminologies"
-subtitle: '<br>PharmaSUG SDE<br>'
+subtitle: "<br><span style='color:#3F5596; font-weight: bold;'>Pharma</span><span style='color:#8BCE88;font-weight: bold;'>SUG</span> <br>SDE<br>"
 author: "<strong>Jagadish Katam</strong><br>12-Apr-2025"
 footer: "<strong>[© 2024 Princeps Technologies All Rights Reserved.](https://www.princepstech.com/)</strong>"
 format: 
   revealjs:
+    controls: true
     multiplex: true
     css: custom.css
     transition: slide
@@ -13,6 +14,10 @@ format:
     highlight-style: dracula
     slideWidth: 1920
     slideHeight: 1080
+    title-slide-attributes:
+      data-background-image: img/cdisc.png
+      data-background-size: cover
+      data-background-opacity: "0.1"
 from: markdown+emoji
 execute:
   echo: true
@@ -20,10 +25,11 @@ execute:
 editor: visual
 ---
 
-## CDISC Library {.title-slide .smaller .incremental}
+## CDISC Library {.title-slide .smaller }
 
 <br/>
 
+::: {.incremental}
 -   The CDISC Library is a single, trusted, authoritative source of CDISC Data Standards metadata and Controlled Terminology.<br> <br>
 
 -   It is a cloud-based metadata repository (MDR) on the Microsoft Azure platform.<br> <br>
@@ -36,6 +42,8 @@ editor: visual
 -   Users can browse and retrieve metadata such as CDASH, SDTM, ADaM, QRS, Controlled Terminology, etc.<br> <br>
 
 -   CDISC makes our data standards available in PDF format. The Implementation Guides (IG) and all applicable contents are now also available in machine-readable format. <br> <br>
+
+:::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
@@ -63,6 +71,8 @@ editor: visual
 
 <br/>
 
+::: {.fragment}
+
 -   API stands for Application Programming Interface.
 -   APIs allow two applications to communicate with each other.
 -   It is a contract between the client and server.
@@ -72,16 +82,20 @@ editor: visual
     -   Public API <br>
     -   Partner API
 
+:::
+
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 ## Application Programming Interface (API) {.title-slide .smaller}
 
 <br/>
 
-::: {.source-text layout="[[95], [5]]"}
+::: {.fragment .source-text layout="[[95], [5]]"}
+
 ![](img/api.svg){fig-align="center" width="700"}
 
 Source: https://www.postman.com/what-is-an-api/
+
 :::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -90,17 +104,22 @@ Source: https://www.postman.com/what-is-an-api/
 
 <br/>
 
+::: {.fragment}
+
 -   REST stands for REpresentational State Transfer.
 -   It is a set of functions to which the developers perform requests and receive responses. In REST API, interaction is made via the HTTP protocol.
 -   REST also allows computers to talk to each other over a network.
 -   It returns the object in the form of XML or JavaScript Object Notation (JSON).
 
-:::: {layout="[[90], [10]]"}
+:::
+
+:::: {.fragment layout="[[90], [10]]" .source-text}
+
 ![](img/cdisc_img1.png){fig-align="center" width="400"}
 
-::: source-text
+
 Source: https://www.slideshare.net/slideshow/what-is-rest-api-rest-api-concepts-and-examples-edureka/174179563
-:::
+
 ::::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -120,11 +139,13 @@ Some of the common HTTP result codes that are often used inside REST APIs are as
 ## HTTP Method - GET {.title-slide .smaller}
 
 ::::: columns
-::: {.column style="font-size: 25px"}
+
+
+::: {.column style="font-size: 25px" .fragment}
 ![](img/cdisc_img2.png){fig-align="center" width="410" height="100"}
 :::
 
-::: {.column style="font-size: 25px"}
+::: {.column style="font-size: 25px" .fragment}
 ![](img/cdisc_img3.png){fig-align="center" width="450" height="10"}
 :::
 :::::
@@ -135,7 +156,7 @@ Some of the common HTTP result codes that are often used inside REST APIs are as
 
 <br/>
 
-```{r}
+```{r setup}
 #| echo: false
 #| code-line-numbers: false
 #| eval: true
@@ -205,7 +226,7 @@ if (!is.null(endpoint$`_links`$`data-tabulation`$`_links`$sdtmig)) {
  
 ```
 
-::: {style="font-size: 0.50em"}
+::: {style="font-size: 0.50em" .fragment}
 ```{r}
 #| echo: false
 
@@ -224,7 +245,7 @@ DT::datatable(endpoint_df |> rename_all(toupper), filter = 'top', options = list
 
 <br/>
 
-::: {style="font-size: 25px"}
+::: {style="font-size: 25px" .fragment}
 ![](img/cdisc_lib_part2.mp4){fig-align="center" width="1200"}
 :::
 
@@ -271,11 +292,12 @@ json_list <- resp %>% resp_body_json()
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
-## Extract data from the json file {.title-slide .smaller}
+## Extract data from the JSON file {.title-slide .smaller}
 
 <br>
 
-The JSON data is loaded into R as a list, it means it contains key-value pairs (named lists) or an array of objects (list of lists). We can convert, manipulate, or flatten it for further use.
+- The JSON data is loaded into R as a list, it means it contains key-value pairs (named lists) or an array of objects (list of lists). <br>
+- We can convert, manipulate, or flatten it for further use.<br>
 
 <br>
 
@@ -404,7 +426,7 @@ DT::datatable(dataset_df |> rename_all(toupper), filter = 'top', options = list(
 
 ```{r }
 #| echo: true
-#| code-line-numbers: '|2|5-10|13|16'
+#| code-line-numbers: '2|5-10|13|16'
 #| eval: false
 #| code-copy: true
 
@@ -434,7 +456,7 @@ ct_list <- resp %>% resp_body_json()
 
 ```{r }
 #| echo: true
-#| code-line-numbers: '|2-40|'
+#| code-line-numbers: '2-40'
 #| eval: false
 #| code-copy: true
 
@@ -482,6 +504,8 @@ ct_codelist_df <- map_dfr(1:codelist_count, function(i) {
 
 ## Controlled Terminology Response returns JSON {.title-slide .smaller}
 
+<br/>
+
 ::: {style="font-size: 0.50em"}
 ```{r }
 #| echo: false
@@ -489,7 +513,7 @@ ct_codelist_df <- map_dfr(1:codelist_count, function(i) {
 ct_codelist_df <- readRDS("data/ct_codelist_df.rds")
 
 DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = list(
-  pageLength = 5, autoWidth = TRUE
+  pageLength = 4, autoWidth = TRUE
 ))
 ```
 :::
@@ -521,14 +545,15 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 
 ::::: columns
 ::: {.column width="50%"}
-<br/> <br/>
 
-[Thank you!]{style="font-size: 100px; text-align=left; color: black"}
+[Thank you!]{style="font-size: 100px; text-align:center; color: black"}
 
+<br/>
 
-<br/> <br/>
+`r fontawesome::fa(c("slideshare"), "black")` [jagadishkatam.github.io](https://jagadishkatam.github.io/CDISClibraryAPI/api.html){style="font-size: 40px; text-align=left; color: orange"}<br/><br/>
 
-`r fontawesome::fa(c("slideshare"), "black")` [jagadishkatam.github.io](https://jagadishkatam.github.io/CDISClibraryAPI/api.html){style="font-size: 40px; text-align=left; color: orange"}
+![](img/jagadishkatam.github.io.png){fig-align="center" width="40%"}
+
 :::
 
 ::: {.column width="50%"}

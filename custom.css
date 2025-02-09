@@ -4,8 +4,20 @@ h1.title {
     color: #007bff;
 }
 
-.reveal .author .footer {
-    font-size: 5px !important;  /* Forces the style to apply */
+#title-slide .author {
+  font-size: 80px!important;
+}
+
+/* Change author color on the title slide */
+.reveal .slide:first-of-type .author {
+    color: red !important;  /* Change to your preferred color */
+    font-weight: bold;           /* Optional: Make it bold */
+    font-size: 1.2em;            /* Optional: Adjust font size */
+}
+
+
+.reveal .footer {
+    font-size: 15px !important;  /* Forces the style to apply */
     color: #a464244f !important;      /* Optional */
 }
 
@@ -52,13 +64,6 @@ h1.title {
     text-align: left;    /* Left align the subtitle */
     font-weight: normal;
     margin-bottom: 15px;
-}
-
-/* Custom class to style Thank You text */
-.reveal .thank-you h2 {
-    font-size: 90px !important;
-    color: #007bff !important;
-    text-align: left !important;
 }
 
 .reveal img {
