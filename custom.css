@@ -1,3 +1,10 @@
+
+
+.reveal .smaller {
+    font-family: "Arial", sans-serif;
+    font-size: 20px;  /* Adjust to your needs */
+}
+
 h1.title {
     font-size: 50px;
     text-align: center;

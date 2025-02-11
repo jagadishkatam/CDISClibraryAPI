@@ -1,8 +1,8 @@
 ---
 title: "Implementing the CDISC Library RESTful API in R: Automated Access to Metadata Repositories and Controlled Terminologies"
-subtitle: "<br><span style='color:#3F5596; font-weight: bold;font-size:50px'>Pharma</span><span style='color:#8BCE88;font-weight: bold;font-size:50px'>SUG</span> <br>SDE<br>"
+subtitle: "<br><span style='color:#3F5596; font-weight: bold;font-size:50px'>Pharma</span><span style='color:#8BCE88;font-weight: bold;font-size:50px'>SUG</span> <br><span style='color:black;font-weight: bold;font-size:50px'>Single Day Event</span><br>"
 author: "<strong>Jagadish Katam</strong><br>12-Apr-2025"
-footer: "<strong>[© 2024 Princeps Technologies All Rights Reserved.](https://www.princepstech.com/)</strong>"
+footer: "<strong>[© 2025 Princeps Technologies All Rights Reserved.](https://www.princepstech.com/)</strong>"
 format: 
   revealjs:
     controls: true
@@ -25,11 +25,33 @@ execute:
 editor: visual
 ---
 
+## Agenda {.title-slide .smaller }
+
+<br/>
+
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
+- CDISC Library <br> 
+- API <br> 
+- RESTful API <br>
+- HTTP Methods <br> 
+- Endpoints and Paameters <br> 
+- Access the CDISC Library <br> 
+- API request via R <br> 
+- Extract the Data from JSON file <br>
+- Conclusion 
+
+:::
+
+<br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+
 ## CDISC Library {.title-slide .smaller }
 
 <br/>
 
-::: {.incremental}
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
 -   The CDISC Library is a single, trusted, authoritative source of CDISC Data Standards metadata and Controlled Terminology.<br> <br>
 
 -   It is a cloud-based metadata repository (MDR) on the Microsoft Azure platform.<br> <br>
@@ -52,6 +74,7 @@ editor: visual
 <br/>
 
 ::: {.fragment style="font-size: 25px"}
+
 ![](img/cdisc_lib_part1.mp4){fig-align="center" width="1200"}
 
 <!-- ![](img/cdisc_lib_img1.png){fig-align="center" width="1200"} -->
@@ -71,15 +94,20 @@ editor: visual
 
 <br/>
 
-::: {.fragment}
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
 
 -   API stands for Application Programming Interface.
 -   APIs allow two applications to communicate with each other.
 -   It is a contract between the client and server.
 -   The client sends a request through the API, and after performing the action, the API sends back a response to the client. <br> <br>
+
+:::
+
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
 -   Types of Application Programming Interface <br/> <br>
     -   Private API <br>
-    -   Public API <br>
+    -   [Public API]{style="font-weight:bold; color:green;"} <br>
     -   Partner API
 
 :::
@@ -104,7 +132,7 @@ Source: https://www.postman.com/what-is-an-api/
 
 <br/>
 
-::: {.fragment}
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
 
 -   REST stands for REpresentational State Transfer.
 -   It is a set of functions to which the developers perform requests and receive responses. In REST API, interaction is made via the HTTP protocol.
@@ -128,8 +156,17 @@ Source: https://www.slideshare.net/slideshow/what-is-rest-api-rest-api-concepts-
 
 <br/>
 
-::: {.fragment layout="[[80], [20]]"}
-Some of the common HTTP result codes that are often used inside REST APIs are as follows: <br/> <br> [200 - "OK"]{style="font-weight:bold; color:green;"} <br> 201 - "Created" (Used with POST). <br> 400 - "Bad Request" (Perhaps missing required parameters). <br> 401 - "Unauthorized" (Missing authentication parameters). <br> 403 - "Forbidden" (You were authenticated but lacking required privileges). <br> [404 - "Not Found"]{style="font-weight:bold;color:red;"}.
+::: {.fragment layout="[[80], [20]]" style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
+Some of the common HTTP result codes that are often used inside REST APIs are as follows: <br/> <br> 
+
+[200 - "OK"]{style="font-weight:bold; color:green;"} <br> 
+201 - "Created" (Used with POST). <br> 
+400 - "Bad Request" (Perhaps missing required parameters). <br> 
+401 - "Unauthorized" (Missing authentication parameters). <br> 
+403 - "Forbidden" (You were authenticated but lacking required privileges). <br> 
+[404 - "Not Found"]{style="font-weight:bold;color:red;"}
+
 
 ![](img/rest.png){.fragment fig-align="center" width="700"}
 :::
@@ -141,11 +178,13 @@ Some of the common HTTP result codes that are often used inside REST APIs are as
 ::::: columns
 
 
-::: {.column style="font-size: 25px" .fragment}
+::: {.column  .fragment}
+
 ![](img/cdisc_img2.png){fig-align="center" width="410" height="100"}
 :::
 
-::: {.column style="font-size: 25px" .fragment}
+::: {.column  .fragment}
+
 ![](img/cdisc_img3.png){fig-align="center" width="450" height="10"}
 :::
 :::::
@@ -249,6 +288,14 @@ DT::datatable(endpoint_df |> rename_all(toupper), filter = 'top', options = list
 
 <br/>
 
+::: {.fragment}
+
+![](img/flow.png){fig-align="center" width="1200"}
+
+:::
+
+::: {.fragment}
+
 ```{r }
 #| echo: true
 #| code-line-numbers: '2|5-10|13|16'
@@ -274,14 +321,20 @@ resp <- req %>% req_perform()
 json_list <- resp %>% resp_body_json()
 ```
 
+:::
+
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 ## Structure of the JSON file {.title-slide .smaller}
 
 <br/>
 
-::: {style="font-size: 25px"}
+
+
+::: {.fragment}
+
 ![](img/list.mp4){fig-align="center" width="1200" height="500"}
+
 :::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -290,8 +343,15 @@ json_list <- resp %>% resp_body_json()
 
 <br>
 
+::: {.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
 - The JSON data is loaded into R as a list, it means it contains key-value pairs (named lists) or an array of objects (list of lists). <br>
 - We can convert, manipulate, or flatten it for further use.<br>
+
+:::
+
+::: {.fragment }
+
 
 <br>
 
@@ -323,6 +383,8 @@ df <- map_dfr(1:length(json_list$classes), function(i) {  # Loop through classes
 })
 
 ```
+
+:::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
@@ -517,6 +579,9 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 
 <br/>
 
+
+:::{.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
+
 -   Direct access to CDISC standards (e.g., SDTM, ADaM, Define-XML) and retrieve the latest official CDISC standards. <br/> <br>
 -   Helps enforce standardized data structures in clinical trials.. <br/> <br>
 -   Reduces manual errors in implementing CDISC models.. <br> <br>
@@ -524,11 +589,15 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 -   Enables programmatic integration with clinical trial software and tools.<br/><br>
 -   Access controlled terminology, dataset structures, and variable definitions.
 
+:::
+
 <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
 
 ## References {.title-slide .smaller}
 
 <br/>
+
+:::{.fragment style="font-size: 25px; font-family: 'Arial', sans-serif;"}
 
 -   Aerts, J. (2019). *Implementing the CDISC Library API in software applications: First experiences.* Presented at **PHUSE EU Connect 2019**, Tarrenz, Austria. <br><br>
 
@@ -538,6 +607,7 @@ DT::datatable(ct_codelist_df |> rename_all(toupper), filter = 'top', options = l
 
 -   Jansen, L. (2021). *Extracting data standards metadata and controlled terminology from the CDISC Library using SAS© with PROC LUA* (Paper AD-168). Presented at **PharmaSUG 2021**.
 
+:::
 
 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
 
